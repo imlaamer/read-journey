@@ -1,0 +1,33 @@
+.authWrapper {
+  /* height: 100vh; */
+  min-height: 100vh;
+  padding: 32px;
+  display: inline-flex;
+  gap: 16px;
+  flex-direction: row;
+  /* justify-content: center;
+  align-items: center; */
+  /* wrap */
+}
+
+.contentContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  max-width: 444px;
+  margin-top: 107px;
+  margin-bottom: 40px;
+  font-size: 64px;
+  /* font-size: clamp(24px, 2vw + 1rem, 64px); */
+
+  font-family: 'Gilroy-Bold', sans-serif;
+  /* font-weight: 700; */
+  line-height: 0.93;
+  letter-spacing: 1.28px;
+}
+
+.accent {
+  color: var(--secondary-very-light-grey);
+}

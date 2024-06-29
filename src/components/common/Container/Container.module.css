@@ -1,19 +1,108 @@
 .container {
   width: 100%;
-  max-width: 320px;
-  padding: 0 15px;
+  /* max-width: 1184px;  */
+  /*  */
+  /* padding: 32px; */
   margin: 0px auto;
 }
 
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding: 0 20px;
+.auth-content-box {
+  /* width: 600px; */
+  /* min-height: 736px; */
+  width: calc(50vw - 32px - 8px);
+  padding: 40px 64px;
+  margin: 0;
+  border-radius: 30px;
+  background-color: var(--primary-dark-grey);
+}
+/* .auth-content-box.phone-box */
+.phone-box {
+  composes: auth-content-box;
+  margin: 0;
+  padding: 0;
+  /* padding: 80px 98px; */
+
+  padding-bottom: 0;
+  background-color: var(--primary-dark-grey);
+  background-image: image-set(
+    url(../../../assets/static/images/iphone-1x-min.png) 1x,
+    url(../../../assets/static/images/iphone-2x-min.png) 2x
+  );
+  /* background-position: 98px 80px; */
+  /* background-size: auto 50%; */
+
+  /* background-size: calc(100% - 32px -32px - 15px - 80px - 80px) auto; */
+
+  /* + 10vh */
+  /* background-position: center calc(100% + 80px); */
+
+  background-position: center bottom;
+
+  /* background-position: center calc(100% + 80px); */
+  /* background-size: 80%; */
+  background-size: auto calc(100% - 80px);
+  /* auto calc(100% - 80px) */
+  /* background-size: contain; */
+
+  background-repeat: no-repeat;
+
+  /* background-position: left bottom, right center;
+        background-size: 308px 329px, 364px 531px; */
+}
+
+/* на певному проміжку -  */
+/* background-size: contain; */
+
+.recommended-page-container {
+}
+
+@media screen and (max-width: 768px) {
+  .phone-box {
+    display: none;
+  }
+}
+/* -------------------- */
+
+/* 
+.hero-colored-container {
+  max-width: 518px;
+}
+
+.auth-container {
+  padding: 0;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.auth-container button {
+  color: var(--primary-white);
+}
+
+.favorites-page-container {
+  color: var(--primary-dark);
+  height: 100%;
+}
+
+.favorites-page-container,
+.nanies-page-container {
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 960px) {
+  .hero-colored-container {
+    margin: 0;
+    margin-right: 64px;
   }
 }
 
-@media screen and (min-width: 1440px) {
-  .container {
-    max-width: 1256px;
+@media screen and (min-width: 1360px) {
+  .hero-colored-container {
+    margin-right: 64px;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .hero-colored-container {
+    padding: 0;
+  }
+} */

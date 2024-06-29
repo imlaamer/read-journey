@@ -9,20 +9,26 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
-import { itemsSlice } from './items/itemsSlice';
-
+import { authSlice } from './auth/authSlice';
+// import { nanniesSlice } from '../redux copy/nannies/nanniesSlice';
 import storage from 'redux-persist/lib/storage';
 
-const config = {
-  key: 'items',
+// const persistNanniesConfig = {
+//   key: 'nannies', 
+//   storage,
+//   whitelist: ['filter', 'favorites'],
+// };
+
+const persistAuthConfig = {
+  key: 'auth',
   storage,
-  whitelist: ['items'],
+  whitelist: ['token'], //'refreshToken'
 };
 
 export const store = configureStore({
   reducer: {
-    items: persistReducer(config, itemsSlice.reducer),
+    auth: persistReducer(persistAuthConfig, authSlice.reducer),
+    // nannies: persistReducer(persistNanniesConfig, nanniesSlice.reducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

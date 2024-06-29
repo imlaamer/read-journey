@@ -1,0 +1,33 @@
+.label {
+  display: block;
+  position: relative;
+}
+
+.form {
+  /* height: auto; */
+  display: flex;
+
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: auto;
+}
+
+.btnLinkWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navLink {
+  color: var(--primary-very-light-grey);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.28px;
+  text-decoration-line: underline;
+  transition: var(--transition);
+}
+
+.navLink:is(:hover, :focus) {
+  color: var(--primary-white);
+}

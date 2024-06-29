@@ -11,6 +11,7 @@ const Spinner = ({ color = '#fff', width = 40, height = 30 }) => {
       ariaLabel="three-dots-loading"
       wrapperStyle={{}}
       wrapperClass=""
+      zIndex="3000"
     />
   );
 };

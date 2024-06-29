@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--primary-white);
+  font-size: 18px;
+  /* font-weight: 700; */
+  text-transform: uppercase;
+  transition: var(--transition);
+  /* padding-top: 8px; */
+  line-height: 1;
+  letter-spacing: 0.36px;
+  font-family: 'Gilroy-Bold', sans-serif;
+}
+
+.title {
+  padding-top: 3px;
+}

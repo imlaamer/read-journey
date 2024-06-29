@@ -1,30 +1,34 @@
 import Spinner from '../../components/common/Spinner/Spinner';
-
 import s from './Button.module.css';
 
 const Button = ({
   type = 'button',
   title,
   children,
-  className = 'load-more',
+  className,
   onClick,
   loading,
   loaderColor = '#fff',
+  id,
+  disabled,
   ...rest
 }) => {
   const buttonClasses = `${s.button} ${s[className]}`;
+
+  const isDisabled = loading || disabled;
 
   return (
     <button
       type={type}
       onClick={onClick}
       className={buttonClasses}
-      disabled={loading}
+      disabled={disabled}
+      id={id}
       {...rest}
     >
-      {loading && <Spinner color={loaderColor} />}
+      {isDisabled && <Spinner color={loaderColor} size="10px" />}
       {children}
-      {!loading && title}
+      {!isDisabled && title}
     </button>
   );
 };

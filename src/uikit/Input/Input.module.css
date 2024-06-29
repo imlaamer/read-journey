@@ -1,0 +1,55 @@
+.wrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background-color: var(--primary-grey);
+  outline: none;
+  border: 1px solid transparent;
+  color: var(--primary-white);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28;
+  letter-spacing: -0.28px;
+  transition: var(--transition);
+}
+
+.nameInput {
+  padding-left: calc(14px + 10px + 45px);
+  margin-bottom: 14px;
+}
+
+.mailInput {
+  padding-left: calc(14px + 10px + 32px);
+  margin-bottom: 14px;
+}
+
+.passwordInput {
+  padding-left: calc(14px + 10px + 72px);
+  margin-bottom: 82px;
+}
+
+.label {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  color: var(--primary-very-light-grey);
+  margin-right: 10px;
+}
+
+.input:is(:hover, :focus) {
+  border-color: var(--secondary-grey);
+  outline: none;
+}
+
+.input:focus {
+  /* outline: none; */
+  /* border-color: var(--secondary-transperent-gray); */
+}
+

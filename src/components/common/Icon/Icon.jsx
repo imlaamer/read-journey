@@ -1,4 +1,4 @@
-import IconsSprite from '../../../assets/sprite.svg';
+import IconsSprite from '../../../assets/static/icons/sprite.svg';
 
 import s from './Icon.module.css';
 
@@ -8,7 +8,7 @@ const Icon = ({
   width = '20',
   height = '20',
   fill = 'none',
-  stroke = '#000',
+  stroke = '#F9F9F9',
 }) => {
   return (
     <svg

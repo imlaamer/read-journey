@@ -2,73 +2,139 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  padding: 16px 60px;
-  line-height: 1.5;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  border-radius: 200px;
-  background-color: var(--secondary-red);
-  color: var(--primary-white);
-  transition: var(--transition);
+  padding: 16px 54px;
   width: auto;
-  margin: 0 auto;
-  letter-spacing: -0.08px;
+  /* margin: 0 auto; */
+  border: none;
   outline: none;
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  font-style: normal;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  background-color: var(--primary-white);
+  color: var(--primary-dark-grey);
+  transition: var(--transition);
 }
 
 .button:is(:hover, :focus) {
-  background-color: var(--hover-red);
-}
-
-.showMoreCardBtn {
-  margin: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.load-more-cards-btn {
+  border-color: var(--secondary-light-grey);
+  color: var(--primary-white);
   background-color: transparent;
-  color: var(--primary-dark);
-  padding-left: 32px;
-  padding-right: 32px;
-  border: 1px solid rgba(71, 84, 103, 0.2);
 }
 
-.load-more-cards-btn:is(:hover, :focus) {
+.authBtn {
+  /* margin-top: 146px; */
+}
+/* 
+.loadMoreBtn {
+  color: var(--primary-white);
+  margin-top: 64px;
+  border: 1px solid transparent;
+}
+
+.logBtn {
+  margin: 0;
   background-color: transparent;
-  border-color: var(--hover-red);
+  border: 1px solid var(--primary-light-gray);
 }
 
-.booking-submit-btn {
+.logBtn,
+.registerBtn {
+  font-size: clamp(10px, 12px, 14px);
+}
+
+.heroBtn {
   margin: 0;
+  gap: 14px;
+  padding: 18px 50px;
+  max-width: 230px;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  background-color: transparent;
+  border: 1px solid var(--primary-light-gray);
 }
 
-.filterSearchBtn {
+.makeAppointmentBtn {
   margin: 0;
-  background-color: var(--secondary-red);
-  /* width: 174px; */
-  height: 56px;
+  margin-top: 48px;
+  color: var(--primary-white);
+  border: 1px solid transparent;
 }
 
-.filterSearchBtn:is(:hover, :focus) {
-  background-color: var(--hover-red);
+.loadMoreBtn:is(:hover, :focus),
+.makeAppointmentBtn:is(:hover, :focus) {
+  box-shadow: var(--box-shadow);
 }
 
-.filterResetBtn {
+.whiteRegisterBtn {
+  composes: registerBtn;
+}
+
+.whiteRegisterBtn,
+.whiteRegisterBtn:hover {
+  background-color: #fbfbfb;
+  color: var(--primary-blue);
+}
+
+.coloredBgBtn {
+  composes: logBtn;
+}
+
+.navLogBtn {
+  border: 1px solid transparent;
+}
+
+.navLogBtn:hover {
+  color: var(--primary-white);
+  background-color: var(--primary-blue);
+}
+
+.formSendBtn,
+.logoutBtn,
+.formSignupBtn,
+.formLoginBtn {
+  width: 100%;
+  border: 1px solid transparent;
+}
+
+.logoutBtn {
+  margin-bottom: 20px;
+}
+
+.button.logoutCancelBtn {
+  width: 100%;
   margin: 0;
-  background-color: var(--secondary-light-grey);
+  background-color: transparent;
+  border: 1px solid var(--primary-blue);
   color: var(--primary-dark);
-  /* width: auto; */
-  /* padding-right: 30px;
-  padding-left: 30px; */
 }
 
-.filterResetBtn:is(:hover, :focus) {
-  background-color: var(--filters-border-bottom);
+.favs-access-btn {
+  margin: 0;
+  width: 100%;
 }
 
-.filterResetBtn:disabled {
-  cursor: not-allowed;
+@media screen and (min-width: 320px) {
+  .registerBtn {
+    margin: 0;
+  }
 }
+
+@media screen and (min-width: 320px) and (max-width: 960px) {
+  .navRegisterBtn,
+  .navLogBtn {
+    width: 100%;
+    margin: 0;
+    min-width: 260px;
+  }
+
+  .navLogBtn {
+    margin-bottom: 10px;
+  }
+} */

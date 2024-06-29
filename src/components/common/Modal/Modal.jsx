@@ -1,17 +1,18 @@
-import { useLockBodyScroll } from 'react-use';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-
 import Icon from '../Icon/Icon';
-
 import s from './Modal.module.css';
 
 const modalRootRef = document.querySelector('#modal-root');
 
-const Modal = ({ onClose, children, className }) => {
+const Modal = ({ onClose, children, className, isOpen }) => {
   const containerClassNames = `${s.container} ${s[className]}`;
 
-  useLockBodyScroll(true);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     const onEscPress = (e) => {
@@ -24,12 +25,14 @@ const Modal = ({ onClose, children, className }) => {
 
     return () => {
       window.removeEventListener('keydown', onEscPress);
+      document.body.style.overflow = 'scroll';
     };
   }, [onClose]);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
+      document.body.style.overflow = 'scroll';
     }
   };
 
@@ -42,8 +45,7 @@ const Modal = ({ onClose, children, className }) => {
           onClick={onClose}
           aria-label="Close"
         >
-          Close
-          {/* <Icon id={''} size="" /> */}
+          <Icon id="close" width="32" height="32" />
         </button>
 
         <div className={s.content}>{children}</div>
