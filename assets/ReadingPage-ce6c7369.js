@@ -1,0 +1,1 @@
+import{j as e,C as s}from"./index-9c8fac83.js";const a="_hero_g1a9v_1",o={hero:a},n=()=>e.jsx("section",{className:o.hero,children:e.jsx(s,{className:"reading-page-container"})});export{n as default};
