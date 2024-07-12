@@ -1,12 +1,17 @@
-import Container from '../../components/common/Container/Container';
+import Dashboard from '../../components/common/Dashboard/Dashboard';
+import DashboardForm from '../../components/forms/DashboardForm/DashboardForm';
 
 import s from './RecommendedPage.module.css';
 
 const RecommendedPage = () => {
   return (
-    <section className={s.hero}>
-      <Container className="recommended-page-container"></Container>
-    </section>
+    <>
+      <div className={s.wrapper}>
+        <Dashboard>
+          <DashboardForm type="recommended" />
+        </Dashboard>
+      </div>
+    </>
   );
 };
 

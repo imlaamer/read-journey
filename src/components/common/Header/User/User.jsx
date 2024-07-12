@@ -4,18 +4,15 @@ import { selectUserName } from '../../../../redux/auth/authSelectors';
 import s from './User.module.css';
 
 const User = () => {
-  const username = useSelector(selectUserName);
+  // const username = useSelector(selectUserName);
+  const username = 'Lolita Yenik'; //-
+
+  const avatarFirstLetter = username.split('')[0].toUpperCase();
 
   return (
     <div className={s.userWrapper}>
-      <div className={s.userIconBox}>
-        <Icon
-          id="user"
-          stroke="#103931"
-          fill="#103931"
-          width="24"
-          height="24"
-        />
+      <div className={s.avatar}>
+        <span className={s.letter}>{avatarFirstLetter}</span>
       </div>
       <p className={s.userName}>{username}</p>
     </div>

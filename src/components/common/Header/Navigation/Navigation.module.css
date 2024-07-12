@@ -10,6 +10,62 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.logoNavWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkBox {
+  display: flex;
+  gap: 40px;
+  /* margin-right: 218px;
+  margin-left: 336px; */
+}
+
+.navLink {
+  position: relative;
+  cursor: pointer;
+  color: var(--primary-very-light-grey);
+  padding-top: 24px;
+  padding-bottom: 32px;
+  /* padding: 20px 0; */
+}
+
+.active {
+  color: var(--primary-white);
+}
+
+.active:after {
+  content: '';
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  /* left: 45%; */
+  background-color: var(--primary-blue);
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.userBtnWrapper {
+  display: flex;
+  gap: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .linkBox {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .linkBox {
+    gap: 32px;
+  }
+}
+
 /* 
 .btnsBox {
   display: flex;

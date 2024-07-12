@@ -23,13 +23,13 @@ const useValidationSchema = () => {
     password: Yup.string()
       .trim()
       .required(REQUIRED_PASSWORD_MESSAGE)
-      .matches(PASSWORD_REGEX, PASSWORD_ERROR_MESSAGE),
+      .min(7, PASSWORD_ERROR_MESSAGE),
+    // .matches(PASSWORD_REGEX, PASSWORD_ERROR_MESSAGE),
   };
-  //min 7 symbols -  переписати PASSWORD_REGEX + повідомлення про мін 7
 
   const signupFormSchema = Yup.object().shape({
     ...baseValidationSchema,
-    username: Yup.string()
+    name: Yup.string()
       .trim()
       .required(REQUIRED_USER_NAME_MESSAGE)
       .matches(USER_NAME_REGEX, USER_NAME_ERROR_MESSAGE),

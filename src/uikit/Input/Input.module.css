@@ -15,24 +15,21 @@
   color: var(--primary-white);
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.28;
+  /* line-height: 1.28; */
   letter-spacing: -0.28px;
   transition: var(--transition);
 }
 
 .nameInput {
   padding-left: calc(14px + 10px + 45px);
-  margin-bottom: 14px;
 }
 
 .mailInput {
   padding-left: calc(14px + 10px + 32px);
-  margin-bottom: 14px;
 }
 
 .passwordInput {
   padding-left: calc(14px + 10px + 72px);
-  margin-bottom: 82px;
 }
 
 .label {
@@ -45,11 +42,69 @@
 
 .input:is(:hover, :focus) {
   border-color: var(--secondary-grey);
-  outline: none;
+  /* outline: none;  */
 }
 
-.input:focus {
-  /* outline: none; */
-  /* border-color: var(--secondary-transperent-gray); */
+/* and (min-width: 320px) */
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    /* max-width: 296px; */
+  }
+  .input {
+    padding: 14px;
+    /* padding-right: calc(18px + 20px); */
+    /* line-height: 1.33; */
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    /* max-width: 296px; */
+  }
+
+  .label {
+    top: 15px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .nameInput {
+    padding-left: calc(14px + 10px + 35px);
+  }
+
+  .mailInput {
+    padding-left: calc(14px + 10px + 25px);
+  }
+
+  .passwordInput {
+    padding-left: calc(14px + 10px + 56px);
+  }
 }
 
+/*----- error---- */
+
+.errorInput {
+  border-color: var(--primary-red);
+}
+.errorInput:is(:hover, :focus) {
+  border-color: var(--primary-red);
+}
+
+/*----- success---- */
+
+.validInput {
+  border-color: var(--primary-green);
+}
+
+.validInput:is(:hover, :focus) {
+  border-color: var(--primary-green);
+}
+
+/* @media screen and (max-width: 1439px) { */
+.input {
+  padding-right: calc(18px + 20px + 10px);
+}
+/* } */
+
+
+ @media screen and (min-width: 1439px) {
+
+ }

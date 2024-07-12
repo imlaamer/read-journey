@@ -1,5 +1,5 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import SharedLayout from './components/common/SharedLayout/SharedLayout';
@@ -9,8 +9,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
 import { selectIsLoggedIn } from './redux/auth/authSelectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useAuth } from './hooks/useAuth';
+import Loader from './components/common/Loader/Loader';
+import { refreshUser } from './redux/auth/authOperations';
 
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignupPage = lazy(() => import('pages/SignupPage/SignupPage'));
 const SigninPage = lazy(() => import('pages/SigninPage/SigninPage'));
 const RecommendedPage = lazy(() =>
@@ -18,21 +22,40 @@ const RecommendedPage = lazy(() =>
 );
 const LibraryPage = lazy(() => import('pages/LibraryPage/LibraryPage'));
 const ReadingPage = lazy(() => import('pages/ReadingPage/ReadingPage'));
-const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 function App() {
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { refreshingStatus } = useAuth();
+
+  const navigate = useNavigate();
   const iLoggedIn = useSelector(selectIsLoggedIn); //-
   // iLoggedIn ? navigate('/recommended') : navigate('/register'); //-
+
+  useEffect(() => {
+    // dispatch(refreshUser());
+  }, [dispatch]);
+
+  if (refreshingStatus) {
+    return <Loader />;
+  }
 
   return (
     <>
       <Routes>
         {/* як зробити за замовчуванням сторінку register or login?  */}
         {/* main layout /?  */}
+
         <Route path="/" element={<SharedLayout />}>
           <Route
-            // index
+            index
+            element={
+              <RestrictedRoute>
+                <WelcomePage />
+              </RestrictedRoute>
+            }
+          />
+          <Route
             path="/register"
             element={
               <RestrictedRoute>
@@ -52,9 +75,9 @@ function App() {
           <Route
             path="/recommended"
             element={
-              <PrivateRoute>
-                <RecommendedPage />
-              </PrivateRoute>
+              // <PrivateRoute>
+              <RecommendedPage />
+              // </PrivateRoute>
             }
           />
           <Route
@@ -74,7 +97,7 @@ function App() {
             }
           />
 
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
 

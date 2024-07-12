@@ -4,7 +4,7 @@ import s from './Icon.module.css';
 
 const Icon = ({
   id,
-  className = 'icon',
+  className = 'icon', //
   width = '20',
   height = '20',
   fill = 'none',

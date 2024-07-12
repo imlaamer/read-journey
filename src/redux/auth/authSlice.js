@@ -1,92 +1,96 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
-  signUp,
+  clearAuthorizationHeaders,
+  setAuthorizationHeaders,
   signIn,
-  getUser,
-  refreshToken,
-  updateProfile,
+  signUp,
+  signOut,
+  // signIn,
+  // getUser,
+  // refreshToken,
+  // updateProfile,
 } from './authOperations';
 
 const initialState = {
   user: {
-    username: null,
+    name: null,
     email: null,
   },
-  token: null,
-  localId: null,//
-  refreshToken: null, //
+  isLoggedIn: false,
+  isRefreshing: false,
+  token: null, //''
+  refreshToken: null, // ?
+
   loading: false,
-  loadingUser: false, //
+  loadingUser: false, // ?
   error: null,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    signOut: () => initialState,
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
+      // ------------ SIGN UP ------------
       .addCase(signUp.fulfilled, (state, { payload }) => {
+        // state.user.email = payload.email;
+        // console.log(payload, 'payload signup');
         state.loading = false;
-        state.user.email = payload.email;
-        state.token = payload.idToken;
-        state.refreshToken = payload.refreshToken;
-        state.localId = payload.localId;
+        state.isLoggedIn = true;
+
+        state.user.name = payload.name;
+        state.token = payload.token;
+        setAuthorizationHeaders(payload.token);
       })
-      .addCase(updateProfile.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        state.user.username = payload.displayName;
-      })
+      //  ------------  SIGN IN  ------------
       .addCase(signIn.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.user.email = payload.email;
-        state.user.username = payload.displayName;
-        state.token = payload.idToken;
-        state.refreshToken = payload.refreshToken;
-        state.localId = payload.localId;
+        state.isLoggedIn = true;
+
+        state.user.name = payload.name;
+        state.token = payload.token;
+        setAuthorizationHeaders(payload.token);
+        // setTokenwaterPortionsInstance(payload.token);
       })
-      .addCase(getUser.pending, (state) => {
-        state.error = null;
-        state.loadingUser = true;
+      // ------------   SIGN OUT  ------------
+      .addCase(signOut.fulfilled, () => {
+        clearAuthorizationHeaders();
+        // clearTokenwaterPortionsInstance();
+        return initialState;
       })
-      .addCase(getUser.fulfilled, (state, { payload }) => {
-        state.loadingUser = false;
-        state.user.email = payload.email;
-        state.user.username = payload.displayName;
-        state.localId = payload.localId;
-      })
-      .addCase(getUser.rejected, (state, { payload }) => {
-        state.error = payload;
-        state.loadingUser = false;
-        state.token = null;
-      })
-      .addCase(refreshToken.fulfilled, (state, { payload }) => {
-        state.loadingUser = false;
-        state.token = payload.id_token;
-        state.refreshToken = payload.refresh_token;
-      })
-      .addCase(refreshToken.rejected, (state, { payload }) => {
-        state.error = payload;
-        state.loadingUser = false;
-        state.token = null;
-        state.refreshToken = null;
-      })
+      // ------------ GET CURRENT USER ------------
+      // .addCase(getCurrentUser.fulfilled, () => {
+
+      // })
+
+      // ------------  REFRESH  ------------
+      // .addCase(refreshUser.pending, (state) => {
+      //   state.isRefreshing = true;
+      //   state.loading = false; // why not true?
+      //   state.error = null;
+      // })
+      // .addCase(refreshUser.fulfilled, (state, { payload }) => {
+      //   state.loading = false;
+      //   state.isLoggedIn = true;
+      //   state.isRefreshing = false;
+      //   // state.user = { ...payload.user }; //?
+      // })
+      // .addCase(refreshUser.rejected, (state) => {
+      //   state.isRefreshing = false;
+      // })
+
+      //pending
       .addMatcher(
-        isAnyOf(
-          signUp.pending,
-          signIn.pending,
-          refreshToken.pending,
-          updateProfile.pending
-        ),
+        isAnyOf(signUp.pending, signIn.pending, signOut.pending),
         (state) => {
           state.error = null;
           state.loading = true;
         }
       )
+      //rejected
       .addMatcher(
-        isAnyOf(signUp.rejected, signIn.rejected, updateProfile.rejected),
+        isAnyOf(signUp.rejected, signIn.rejected, signOut.rejected),
         (state, action) => {
           state.error = action.payload;
           state.loading = false;
@@ -95,4 +99,4 @@ export const authSlice = createSlice({
   },
 });
 
-export const { signOut } = authSlice.actions;
+// export const {  } = authSlice.actions;

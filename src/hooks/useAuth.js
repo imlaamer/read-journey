@@ -6,6 +6,7 @@ import {
   selectLoading,
   selectLoadingUser,
   selectError,
+  selectRefreshingStatus,
   // getLoading,
   // getError,
   // getUser,
@@ -20,7 +21,7 @@ export const useAuth = () => {
   // const user = useSelector(getUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const token = useSelector(selectToken);
-  // const refreshingStatus = useSelector(getRefreshingStatus);
+  const refreshingStatus = useSelector(selectRefreshingStatus);
 
   return {
     loading,
@@ -28,6 +29,6 @@ export const useAuth = () => {
     // user,
     isLoggedIn,
     token,
-    // refreshingStatus,
+    refreshingStatus,
   };
 };

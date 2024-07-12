@@ -1,0 +1,195 @@
+.container {
+  position: relative;
+  max-width: 242px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.4px;
+  padding-top: calc(152px - 50px);
+  margin-bottom: 14px;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.28px;
+  color: var(--primary-very-light-grey);
+}
+
+.accent {
+  color: var(--primary-white);
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary-grey);
+  border-radius: 50%;
+  margin: 0 auto;
+  background-image: image-set(
+    url(../../../assets/static/images/star-1x-min.png) 1x,
+    url(../../../assets/static/images/star-2x-min.png) 2x
+  );
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* @media (min-device-pixel-ratio: 2) or  image-set ????? */
+
+/* @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .circle {
+    background-image:  url(../../../assets/static/images/star-2x-min.png);
+  }
+} */
+
+/* ------progress desk---------- */
+.progressContainer {
+  max-width: 312px;
+  background-position: center bottom;
+  text-align: start;
+}
+
+.progressTitle {
+  padding: 0;
+}
+
+.progressText {
+  /* composes: text; */
+  margin-bottom: 60px;
+}
+
+/*------ start  desk-------- */
+
+.startContainer {
+  max-width: 274px;
+  position: relative;
+  min-height: 186px;
+  padding-top: 130px;
+}
+
+.startText {
+  /* composes: text; */
+  margin-top: 20px;
+}
+
+.startCircle {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  top: 0;
+  right: 72px;
+  background-image: image-set(
+    url(../../../assets/static/images/books-big-1x-min.png) 1x,
+    url(../../../assets/static/images/books-big-2x-min.png) 2x
+  );
+}
+
+/*------finish desk-------- */
+
+.finishContainer {
+  background-image: image-set(
+    url(../../../assets/static/images/books-big-1x-min.png) 1x,
+    url(../../../assets/static/images/books-big-2x-min.png) 2x
+  );
+}
+
+.addedTitle,
+.finishTitle {
+  padding-top: calc(152px - 50px);
+  margin-bottom: 14px;
+}
+
+.finishText {
+  /* composes: text; */
+}
+
+/* -----added -----*/
+.addedContainer {
+  max-width: 242px;
+  background-image: image-set(
+    url(../../../assets/static/images/thumbs-up-big-1x-min.png) 1x,
+    url(../../../assets/static/images/thumbs-up-big-2x-min.png) 2x
+  );
+}
+
+.addedText {
+}
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .addedContainer,
+  .progressContainer {
+    width: 242px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* -------start----- */
+
+  .startContainer {
+    max-width: 198px;
+    padding-top: 100px;
+  }
+  .startText {
+    margin-top: 10px;
+  }
+  .startCircle {
+    width: 100px;
+    height: 100px;
+    background-size: 50px;
+    right: 48px;
+  }
+
+  /* -------progress----- */
+  .progressContainer {
+    max-width: 296px;
+  }
+
+  .progressTitle {
+  }
+
+  .progressText {
+    composes: text;
+    margin-bottom: 20px;
+  }
+
+  .progressCircle {
+    background-size: 32px;
+    width: 80px;
+    height: 80px;
+  }
+
+  /* -------finish----- */
+  .addedContainer,
+  .finishContainer {
+    background-size: 50px 50px;
+  }
+
+  .addedTitle,
+  .finishTitle {
+    padding-top: calc(130px - 60px);
+    margin-bottom: 10px;
+    font-size: 18px;
+    letter-spacing: -0.36px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .progressContainer {
+    max-width: 306px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .progressContainer {
+    max-width: 314px;
+  }
+}

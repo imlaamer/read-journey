@@ -1,27 +1,53 @@
-@media screen and (max-width: 960px) {
+.button.header-toggle-btn {
+}
+
+.button.sidebar-toggle-btn {
+  /* z-index: 999; */
+  /* --------!  */
+  /* position: fixed; */
+}
+
+.button.openedSidebarBtn {
+  position: fixed;
+}
+
+
+@media screen and (max-width: 767px) {
+  .button {
+    position: absolute;
+    z-index: 1003;
+
+    top: calc(20px + 16px);
+    right: calc(20px + 20px);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+/* @media screen and (max-width: 960px) {
   .button {
     position: absolute;
     z-index: 999;
-    right: 20px;
+    top: calc(32px + 14px);
+    right: calc(32px + 20px);
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
-}
+} */
 
 @media screen and (max-width: 768px) {
   .button {
-    top: 20px;
+    /* top: 20px; */
   }
 }
 
 @media screen and (min-width: 769px) {
   .button {
-    top: 52px;
-    right: 52px;
-  }
-  .coloredHeaderBtn {
-    top: 30px;
+    /* top: 52px; */
+    /* right: 52px; */
   }
 }
 

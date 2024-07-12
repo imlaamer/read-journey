@@ -28,6 +28,7 @@ const Button = ({
     >
       {isDisabled && <Spinner color={loaderColor} size="10px" />}
       {children}
+      {/* {title} */}
       {!isDisabled && title}
     </button>
   );

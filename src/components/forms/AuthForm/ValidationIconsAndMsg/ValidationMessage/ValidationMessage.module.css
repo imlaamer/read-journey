@@ -1,0 +1,28 @@
+.message {
+  position: absolute;
+  bottom: 8px;
+  left: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.24px;
+}
+
+.errorMessage {
+  color: var(--primary-red);
+}
+
+.validMessage {
+  color: var(--primary-green);
+}
+
+/* and (min-width: 320px) */
+@media screen  and (max-width: 767px) {
+  .message {
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+  bottom: 4px;
+
+  }
+}

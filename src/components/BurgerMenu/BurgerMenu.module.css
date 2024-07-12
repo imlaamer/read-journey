@@ -1,5 +1,5 @@
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -10,32 +10,34 @@
 .container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 50px;
-  padding: 30px;
-  gap: 25px;
-  min-height: 400px;
+  margin-top: calc(100vh / 3);
+}
+
+.linksBox {
+  margin: 0 auto;
 }
 
 .notHomePageBg,
 .bg {
   position: fixed;
-  z-index: 999;
+  z-index: 1002;
   width: 100%;
   width: 200px;
   height: 100%;
   background: var(--primary-grey);
+
+  /* min-height: 400px; */
+  min-height: 260px;
+
+  overflow-y: scroll;
 }
 
 .navLink {
   position: relative;
   display: flex;
-  align-items: center;
   color: var(--primary-dark);
   width: max-content;
-  padding: 5px 0;
-
+  padding: 12px;
   font-family: 'Gilroy-Bold', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -56,11 +58,19 @@
 .active:after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 8px;
   background-color: var(--primary-blue);
-  width: 100%;
+  /* width: 100%; */
+  width: calc(100% - 24px);
+
   height: 2px;
   border-radius: 2px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    display: none;
+  }
 }
 /* 
 @media screen and (max-width: 960px) {

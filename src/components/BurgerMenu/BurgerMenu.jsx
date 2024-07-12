@@ -3,14 +3,10 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import Icon from '../common/Icon/Icon';
 import Button from '../../uikit/Button/Button';
-import Modal from '../common/Modal/Modal';
 import ToggleButton from './ToggleButton/ToggleButton';
-// import LogoutCard from '../LogoutCard/LogoutCard';
+import Backdrop from '../common/Backdrop/Backdrop';
 
-import LoginForm from '../forms/LoginForm/LoginForm';
-import SignupForm from '../forms/SignupForm/SignupForm';
 import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
 
 import s from './BurgerMenu.module.css';
@@ -27,23 +23,16 @@ const variants = {
   closed: {
     x: '100%',
     transition: {
-      delay: 0.1,
+      delay: 0.4,
       type: 'spring',
       stiffness: 450,
       damping: 40,
-      duration: 0.1,
+      duration: 0.4,
     },
   },
 };
 
-const BurgerMenu = ({
-  isHomePage,
-  handleCloseModal,
-  handleOpenModal,
-  isSignupModalOpen,
-  isLogModalOpen,
-  isLogoutModalOpen,
-}) => {
+const BurgerMenu = () => {
   const [isOpen, setOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -63,78 +52,58 @@ const BurgerMenu = ({
     };
   }, []);
 
-  const handleOpen = (e) => {
-    setOpen(false);
-    setTimeout(() => {
-      handleOpenModal(e);
-    }, 200);
-  };
-
   return (
-    <motion.div className={s.sidebar} animate={isOpen ? 'open' : 'closed'}>
-      <motion.div
-        className={isHomePage ? s.bg : s.notHomePageBg}
-        variants={variants}
-        animate={{ opacity: isOpen ? 1 : 0 }}
-      >
-        <nav className={s.container}>
-          {/* <div></div> */}
-          <NavLink
-            className={({ isActive }) =>
-              `${s.navLink} ${isActive ? s.active : ''}`
-            }
-            to="/"
-            onClick={() => {
-              setOpen(false);
-            }}
-          >
-            Home
-          </NavLink>
-
-          <NavLink
-            className={({ isActive }) =>
-              `${s.navLink} ${isActive ? s.active : ''}`
-            }
-            // to="/nannies"
-            onClick={() => {
-              setOpen(false);
-            }}
-          >
-            My library
-          </NavLink>
-
-          {isLoggedIn && (
-            <NavLink
-              className={({ isActive }) =>
-                `${s.navLink} ${isActive ? s.active : ''}`
-              }
-              to="/favorites"
-              onClick={() => {
-                setOpen(false);
-              }}
-            >
-              <Icon id="heart" stroke="#103931" fill="#103931" />
-              Favorites
-            </NavLink>
-          )}
-
-          {/* {isLogoutModalOpen && (
-              <Modal
-                onClose={handleCloseModal}
-                className="authModal"
-                isOpen={isLogoutModalOpen}
+    <>
+      <motion.div className={s.sidebar} animate={isOpen ? 'open' : 'closed'}>
+        <motion.div
+          className={s.bg}
+          variants={variants}
+          animate={{ opacity: isOpen ? 1 : 0 }}
+        >
+          <nav className={s.container}>
+            <div className={s.linksBox}>
+              <NavLink
+                className={({ isActive }) =>
+                  `${s.navLink} ${isActive ? s.active : ''}`
+                }
+                to="/recommended"
+                onClick={() => {
+                  setOpen(false);
+                }}
               >
-                <LogoutCard handleCloseModal={handleCloseModal} />
-              </Modal>
-            )} */}
-        </nav>
+                Home
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  `${s.navLink} ${isActive ? s.active : ''}`
+                }
+                to="/library"
+                onClick={() => {
+                  setOpen(false);
+                }}
+              >
+                My library
+              </NavLink>
+            </div>
+          </nav>
+          <Button
+            type="submit"
+            title="Log out"
+            className="sidebar-logout-btn"
+            id="logout"
+          />
+        </motion.div>
+
+        <ToggleButton
+          setOpen={setOpen}
+          isOpen={isOpen}
+          className="sidebar-toggle-btn"
+        />
       </motion.div>
-      <ToggleButton
-        setOpen={setOpen}
-        isHomePage={isHomePage}
-        handleCloseModal={handleCloseModal}
-      />
-    </motion.div>
+
+      {isOpen && <Backdrop isOpen={isOpen} onClose={() => setOpen(false)} />}
+    </>
   );
 };
 

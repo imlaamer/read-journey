@@ -7,7 +7,7 @@
   max-width: 620px;
   margin: 0 auto;
 
-  color: var(--primary-dark)
+  color: var(--primary-dark);
 }
 
 .image {
@@ -16,7 +16,8 @@
 }
 
 .text {
-  color: red;
+  color: var(--primary-red);
+  font-family: 'Gilroy-Bold', sans-serif;
   font-weight: 700;
   margin-right: 10px;
 }
@@ -27,8 +28,10 @@
 
 .description {
   text-align: center;
+  color: var(--primary-very-light-grey);
 }
 
 .accent {
+  color: var(--primary-white);
   font-weight: 600;
 }

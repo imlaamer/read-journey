@@ -14,7 +14,7 @@ import { authSlice } from './auth/authSlice';
 import storage from 'redux-persist/lib/storage';
 
 // const persistNanniesConfig = {
-//   key: 'nannies', 
+//   key: 'nannies',
 //   storage,
 //   whitelist: ['filter', 'favorites'],
 // };
@@ -22,7 +22,7 @@ import storage from 'redux-persist/lib/storage';
 const persistAuthConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'], //'refreshToken'
+  whitelist: ['token', 'refreshToken'], //'refreshToken' - для  чого сервер віддає рефреш токен при реєстрації?
 };
 
 export const store = configureStore({

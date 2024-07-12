@@ -4,9 +4,7 @@
 }
 
 .form {
-  /* height: auto; */
   display: flex;
-
   justify-content: space-between;
   flex-direction: column;
   margin-bottom: auto;
@@ -30,4 +28,47 @@
 
 .navLink:is(:hover, :focus) {
   color: var(--primary-white);
+}
+
+/* validation */
+
+.inputIconsMessageBox {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.loginLastInputIconsMessageBox,
+.lastInputIconsMessageBox {
+  position: relative;
+  padding-bottom: 30px;
+  margin-bottom: 52px;
+}
+
+.loginLastInputIconsMessageBox {
+  margin-bottom: calc(146px - 30px);
+}
+
+/* and (min-width: 320px) */
+@media screen and (max-width: 767px) {
+  .inputIconsMessageBox {
+    padding-bottom: calc(8px + 12px);
+    max-width: 296px;
+  }
+
+  .loginLastInputIconsMessageBox,
+  .lastInputIconsMessageBox {
+    margin-bottom: 0;
+    padding-bottom: calc(8px + 12px);
+    max-width: 296px;
+  }
+
+  .navLink {
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: -0.24px;
+  }
+
+  .btnLinkWrapper {
+    gap: 14px;
+  }
 }
