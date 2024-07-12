@@ -1,0 +1,1 @@
+import{j as t}from"./index-0a4a6ea6.js";import{A as n}from"./AuthForm-c147cbcf.js";import{M as e}from"./Meta-a0d5b68b.js";import{A as r}from"./AuthWrapper-cb1238b3.js";import"./constants-8877dbcf.js";const a=()=>t.jsxs(t.Fragment,{children:[t.jsx(e,{title:"Read Journey - Sign Up Page"}),t.jsx(r,{children:t.jsx(n,{type:"signup"})})]});export{a as default};

@@ -1,1 +1,0 @@
-import{j as t}from"./index-9c8fac83.js";import{M as n,A as e,a as o}from"./AuthWrapper-c7fb1778.js";const i=()=>t.jsxs(t.Fragment,{children:[t.jsx(n,{title:"Log In Page"}),t.jsx(e,{children:t.jsx(o,{type:"signin"})})]});export{i as default};

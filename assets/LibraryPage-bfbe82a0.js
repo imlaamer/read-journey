@@ -1,0 +1,1 @@
+import{j as r,C as e}from"./index-0a4a6ea6.js";const s="_hero_g1a9v_1",a={hero:s},t=()=>r.jsx("section",{className:a.hero,children:r.jsx(e,{className:"library-page-container"})});export{t as default};
